@@ -3,6 +3,8 @@ Discord bot for our M426 module project.
 
 Main repository: [lyne/m426](https://github.com/lyne/m426/)
 
+[Bot invitation link](https://discord.com/api/oauth2/authorize?client_id=928313113965649971&permissions=2147486784&scope=bot)
+
 # Installation
 ## 1. Download Python
 You can download python from here: [python.org/downloads](https://www.python.org/downloads/)
