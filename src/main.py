@@ -1,6 +1,8 @@
 import discord
 import os
 from dotenv import load_dotenv
+from db import get_conn
+import mysql.connector
 
 load_dotenv()
 
@@ -11,6 +13,8 @@ client = discord.Client()
 @client.event
 async def on_ready():
     print(f"Logged in as {client.user}")
+
+    test_db()
 
 @client.event
 async def on_message(message):
@@ -38,5 +42,11 @@ async def command(msg, msgObj):
 
 async def new(text, msgObj):
     await msgObj.channel.send(f"Message: {text}")
+
+def test_db():
+    conn = get_conn()
+    cursor = conn.cursor()
+
+    print(cursor.execute("SELECT * FROM guests"))
 
 client.run(token)
