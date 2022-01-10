@@ -18,6 +18,10 @@ pip install -U discord.py
 pip install -U python-dotenv
 ```
 
+```
+pip install -U mysql
+```
+
 ## 3. Discord Bot Token
 In the `src` directory create a new file named `.env`. In that file add the following line:
 ```
