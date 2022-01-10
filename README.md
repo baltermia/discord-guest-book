@@ -52,4 +52,4 @@ In the bots source code a default user is used using following credentials:
 
 You can either add this user to your database using PhpMyAdmin (again) or use your own user (if you already have a user that has access to all your mysql databases).
 
-To use your own user just paste the credentials into the *TODO*.
+To use your own user just paste the credentials into the [src/db.py](src/db.py) file.
