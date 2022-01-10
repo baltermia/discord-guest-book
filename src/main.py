@@ -3,19 +3,21 @@ import os
 from dotenv import load_dotenv
 from db import get_conn
 import mysql.connector
-from time import time
 
+# env api
 load_dotenv()
-
 token = os.getenv("DISCORD_TOKEN")
 
+# discord api
 client = discord.Client()
+
+# mysql api
+conn = get_conn()
+cursor = conn.cursor()
 
 @client.event
 async def on_ready():
     print(f"Logged in as {client.user}")
-
-    test_db()
 
 @client.event
 async def on_message(message):
@@ -42,18 +44,16 @@ async def command(msg, msgObj):
     }
 
 async def new(text, msgObj):
-    await msgObj.channel.send(f"Message: {text}")
-
-def test_db():
-    conn = get_conn()
-    cursor = conn.cursor()
-
-    sql = "INSERT INTO guests (ServerID, Benutzername, Nachricht, Timestamp) VALUES (%s, %s, %s, %s)"
-    val = ("placeholder", "speyck", "ich war hier", time())
-    cursor.execute(sql, val)
-
-    conn.commit()
-
-    print(cursor.execute("SELECT * FROM guests"))
+    try:
+        sql = "INSERT INTO guests (ServerID, Benutzername, Nachricht, Timestamp) VALUES (%s, %s, %s, %s)"
+        val = (msgObj.guild.id, msgObj.author.id, text, msgObj.created_at)
+        
+        cursor.execute(sql, val)
+        
+        conn.commit()
+        
+        await msgObj.channel.send(f"GuestBook Entry successfully created.")
+    except Error as error:
+        await msgObj.channel.send(f"An unexpected Error occured. GuestBook Entry couldn't be created.")
 
 client.run(token)
