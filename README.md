@@ -19,7 +19,7 @@ pip install -U python-dotenv
 ```
 
 ```
-pip install -U mysql
+pip install -U mysql-connector
 ```
 
 ## 3. Discord Bot Token
