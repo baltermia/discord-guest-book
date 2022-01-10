@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 from db import get_conn
 import mysql.connector
+from time import time
 
 load_dotenv()
 
@@ -46,6 +47,12 @@ async def new(text, msgObj):
 def test_db():
     conn = get_conn()
     cursor = conn.cursor()
+
+    sql = "INSERT INTO guests (ServerID, Benutzername, Nachricht, Timestamp) VALUES (%s, %s, %s, %s)"
+    val = ("placeholder", "speyck", "ich war hier", time())
+    cursor.execute(sql, val)
+
+    conn.commit()
 
     print(cursor.execute("SELECT * FROM guests"))
 
