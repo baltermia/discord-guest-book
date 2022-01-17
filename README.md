@@ -1,7 +1,7 @@
 # discord-guest-book
 Discord bot for our M426 module project.
 
-Main repository: [lyne/m426](https://github.com/lyne/m426/)
+Main repository: [lyne/m426](https://github.com/lyne/m426/) (private)
 
 [Bot invitation link](https://discord.com/api/oauth2/authorize?client_id=928313113965649971&permissions=2147486784&scope=bot)
 
@@ -34,7 +34,7 @@ Replace `<token>` with your discord-bots token.
 To create a Bot and recieve the Token head to [discord.com/developers](https://discord.com/developers/)
 
 # Database
-The databases source code is in the main git-repo: [lyne/m426/Database](https://github.com/lyne/m426/Database/)
+The databases source code is in the main git-repo: [lyne/m426/Database](https://github.com/lyne/m426/Database/) (private repo)
 ## 1. Install XAMPP
 A MySql Database is used. So for the database to work, you first need to download XAMPP: [apachefriends.org/download.html](https://www.apachefriends.org/download.html)
 Download the executeable and install XAMPP on your machine following the steps of the installatin file.
@@ -45,7 +45,7 @@ First start `MySQL` and `Apache` from XAMPP. Then Click on the `Admin` Button on
 Now, using the GUI, create a database named `guestbook`.
 
 ## 3. Import Database from dump
-You can get the dump file from here: [lyne/m426/Database/guests.sql](https://github.com/lyne/m426/Database/guests.sql)
+You can get the dump file from here: [lyne/m426/Database/guests.sql](https://github.com/lyne/m426/blob/main/Database/guests.sql) (private repo)
 
 Then, again using the PhpMyAdmin-Portal, import the database into the newly created `guestbook` database.
 
